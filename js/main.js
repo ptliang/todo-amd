@@ -1,8 +1,8 @@
 require.config({
 	paths: {
-		jquery: 'libs/jquery',
-		uderscore: 'libs/underscore',
-		backbone: 'libs/backbone',
+		jquery: '//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min',
+		underscore: 'http://documentcloud.github.com/underscore/underscore-min',
+		backbone: 'http://documentcloud.github.io/backbone/backbone-min',
 		text: 'libs/text',
 		storage: 'libs/backbone.localStorage-min'
 	},
@@ -19,6 +19,8 @@ require.config({
 	}
 });
 
-require(['views/app'], function(AppView) {
-	var app_view = new AppView;
+require(['views/app', 'collections/todos'], function(AppView, AppCollection) {
+	var app_view = new AppView({
+		collection: new AppCollection()
+	});
 });

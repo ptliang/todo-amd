@@ -6,7 +6,9 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 		},
 
 		initialize: function() {
-
+			if (!this.get('content')) {
+				this.set({'content': this.defaults.content});
+			}
 		},
 
 		toggle: function() {
@@ -15,7 +17,6 @@ define(['underscore', 'backbone'], function(_, Backbone) {
 
 		clear: function() {
 			this.destroy();
-			this.view.remove();
 		}
 	});
 
